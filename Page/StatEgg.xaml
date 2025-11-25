@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EddSt.Page.StatEgg"
+             
+             Title="StatEgg">
+    <StackLayout>
+        
+            <Border>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Button x:Name="stWeek" Text="НЕДЕЛЯ" Clicked="stWeek_Clicked" />
+                    <Button x:Name="stMonth" Text="МЕСЯЦ"/>
+                    <Button x:Name="stYear" Text="ГОД"/>
+                </HorizontalStackLayout>
+             </Border>
+         
+        <Border HeightRequest="200">
+            <StackLayout>
+                
+            </StackLayout>
+        </Border>
+        <Border>
+         
+                <Grid Margin="10" HorizontalOptions="Fill">
+                    <Grid.RowDefinitions >
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Text="в среденм" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" />
+                <Label x:Name="sArefm " FontSize="50"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" />
+                <Label  Text="яиц" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" />
+                <Label  Text="всего" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" />
+                <Label x:Name="all" FontSize="50"  Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" />
+                <Label  Text="яиц" Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
+                </Grid>
+
+               
+        </Border>
+        
+        
+    </StackLayout>
+    
+</ContentPage>
