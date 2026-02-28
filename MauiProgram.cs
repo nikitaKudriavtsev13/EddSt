@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace EddSt
 {
@@ -6,8 +7,10 @@ namespace EddSt
     {
         public static MauiApp CreateMauiApp()
         {
+
             var builder = MauiApp.CreateBuilder();
             builder
+
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {

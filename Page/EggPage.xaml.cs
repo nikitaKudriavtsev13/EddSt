@@ -1,7 +1,4 @@
 
-using EddSt.Page.data;
-using Microsoft.Maui.Controls;
-using System.Collections.ObjectModel;
 using System.Globalization;
 
 
@@ -15,8 +12,10 @@ public partial class EggPage : ContentPage
     public EggPage()
 	{
 		InitializeComponent();
-    	BindingContext = new EggViewModel();
-        
+         
+       
+
+
     }
 
 }

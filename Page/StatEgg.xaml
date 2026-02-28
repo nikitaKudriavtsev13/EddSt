@@ -2,28 +2,70 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EddSt.Page.StatEgg"
-             
+              
+             xmlns:local="clr-namespace:EddSt.Page"
              Title="StatEgg">
+    <!--xmlns:viewModels="clr-namespace:EddSt.Page.data"-->
+    <!--<ContentPage.BindingContext>
+        <viewModels:EggViewModel/>
+    </ContentPage.BindingContext>-->
+
+
     <StackLayout>
         
             <Border>
-                <HorizontalStackLayout HorizontalOptions="Center">
-                    <Button x:Name="stWeek" Text="НЕДЕЛЯ" Clicked="stWeek_Clicked" />
-                    <Button x:Name="stMonth" Text="МЕСЯЦ"/>
-                    <Button x:Name="stYear" Text="ГОД"/>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button x:Name="stWeek" Text="НЕДЕЛЯ" CommandParameter="1" Command="{Binding AllSredEgg}" />
+                <Button x:Name="stMonth" Text="МЕСЯЦ" CommandParameter="2" Command="{Binding AllSredEgg}"/>
+                <Button  x:Name="stYear" Text="ГОД"  CommandParameter="3" Command="{Binding AllSredEgg}"/>
+
+                    
                 </HorizontalStackLayout>
              </Border>
          
         <Border HeightRequest="200">
-            <StackLayout>
-                
-            </StackLayout>
+
+            <CollectionView  VerticalOptions="End"  HorizontalOptions="Center"  ItemsLayout="HorizontalList"
+                             SelectionMode="Single"  
+                             SelectedItem="{Binding SelectedHeghtLines}"
+                             SelectionChangedCommand="{Binding nowLineCommand}"
+                SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}"
+                             ItemsSource="{Binding HeghtLines} " 
+                             x:Name="ColVeiwLine">
+
+                <CollectionView.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right" CommandParameter="4" Command="{Binding AllSredEgg}"/>
+                    <SwipeGestureRecognizer Direction="Left" CommandParameter="5" Command="{Binding AllSredEgg}"/>
+                </CollectionView.GestureRecognizers>
+
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+
+                        <Grid  VerticalOptions="End" HorizontalOptions="Fill"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition  Height="130"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="30"/>
+  
+                            </Grid.RowDefinitions>
+                            <BoxView Margin="1" Grid.Row="0" VerticalOptions="End"
+                               WidthRequest="{Binding Heght } " HeightRequest="{Binding Weght } "/>
+                            <Label HorizontalOptions="Center" Margin="1"
+                                    FontSize="{Binding Heght }"
+                                Grid.Row="2" Text="{Binding DataAdd}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                </CollectionView>
+            
         </Border>
+
+       
         <Border>
          
                 <Grid Margin="10" HorizontalOptions="Fill">
                     <Grid.RowDefinitions >
-                        <RowDefinition/>
+                       <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -33,17 +75,25 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label  Text="в среденм" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" />
-                <Label x:Name="sArefm " FontSize="50"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" />
+                <Label x:Name="sArefm" Text="{Binding  SredEgg}"  FontSize="50"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" />
                 <Label  Text="яиц" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" />
+
+                <Label Text="{Binding DataAddN }" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" />
+                <Label x:Name="now"  Text="{Binding WeghtLN }"  FontSize="50"  Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" />
+                <Label  Text="яиц"  Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
+
                 <Label  Text="всего" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" />
-                <Label x:Name="all" FontSize="50"  Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" />
-                <Label  Text="яиц" Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
-                </Grid>
+                <Label x:Name="all"  Text="{Binding AllEgg }"  FontSize="50"  Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" />
+                <Label  Text="яиц"  Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
+                </Grid><!--данные в срелнем-->
 
                
         </Border>
-        
-        
+        <HorizontalStackLayout  HorizontalOptions="Center">
+            <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}"/>
+            <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" />
+        </HorizontalStackLayout>
+
     </StackLayout>
     
 </ContentPage>

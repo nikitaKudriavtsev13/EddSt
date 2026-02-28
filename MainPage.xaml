@@ -2,13 +2,20 @@
 <TabbedPage  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:EddSt.Page"
-             
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
-             x:Name="tb1"
+             Shell.NavBarIsVisible="False"
+             xmlns:viewModels="clr-namespace:EddSt.Page.data"
+             
+             
              x:Class="EddSt.MainPage" >
    
-    <local:EggPage />
-    <local:StatEgg />
-    <local:ChikenPage/>
+    <TabbedPage.BindingContext>
+        <viewModels:EggViewModel/>
+    </TabbedPage.BindingContext>
+
+
+    <local:EggPage Shell.NavBarIsVisible="False" />
+    <local:StatEgg Shell.NavBarIsVisible="False" />
+    <local:ChikenPage Shell.NavBarIsVisible="False"/>
 </TabbedPage>

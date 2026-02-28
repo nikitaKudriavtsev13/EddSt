@@ -9,7 +9,7 @@
         
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new MainPage())) { Height=800, Width=400 };
+            return new Window(new NavigationPage(new MainPage())) ;
         }
     }
 }

@@ -2,14 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EddSt.Page.EggPage"
+
              xmlns:local="clr-namespace:EddSt.Page"
+             Shell.NavBarIsVisible="False"
              Title="EggPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:ConvertHeght x:Key="ConvertHeght1" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
+    
+    <!--<ContentPage.BindingContext>
+        <viewModels:EggViewModel/>
+    </ContentPage.BindingContext>-->
     <VerticalStackLayout  VerticalOptions="Fill" x:Name="ContentEggPageStackLayout" >
         <Border   x:Name="borderAnother" Padding="0,0,0,5">
             <VerticalStackLayout  >
@@ -21,9 +26,10 @@
                     <Stepper  Minimum="1" Maximum="110" Increment="1" 
                              Value="{Binding HowManyEggs}" AutomationProperties.IsInAccessibleTree="False"/>
                     </VerticalStackLayout>
-                        
-                    <Button Text="OK" Command="{Binding AddCommand}" WidthRequest="100" Margin="0" />
-                    
+
+                    <Button Text="OK" Command="{Binding AddCommand}" WidthRequest="100" Margin="0"  
+                            />
+
                 </FlexLayout>
              </VerticalStackLayout>
         </Border>
@@ -36,8 +42,11 @@
                     <Binding Source="{x:Reference borderAnother}" Path="Height"/>
                 </MultiBinding>
             </Border.HeightRequest>
+            
             <CollectionView  
-                SelectionMode="Single" ItemsSource="{Binding EggsViewModel}" x:Name="ColVeiw"  >
+                SelectionMode="Single" 
+                ItemsSource="{Binding Eggs}" 
+                x:Name="ColVeiw"   >
 
                      <CollectionView.Header  >
                     <Grid  VerticalOptions="Start" HorizontalOptions="Center"   >
@@ -47,26 +56,29 @@
                             <ColumnDefinition Width="128"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label HorizontalOptions="Center" Margin="10" Text="ID" Grid.Column="0" />
+                        
                         <Label  HorizontalOptions="Center"  Margin="10" Text="СКОЛЬКО СНЕСЛОСЬ" Grid.Column="1"/>
                         <Label HorizontalOptions="Center"  Margin="10" Text=" КОГДА СНЕСЛИСЬ" Grid.Column="2"/>
-                        <Button Grid.Column="3" Text="X"  Command="{Binding RemoveCommand}"
-                            CommandParameter="{Binding Source={x:Reference Name=ColVeiw}, Path=SelectedItem}"
-                                Background="#B24E1F" FontSize="14" WidthRequest="1"  />
+                         <Button Grid.Column="3" Text="X"  Command="{Binding RemoveCommand}"
+   CommandParameter="{Binding Source={x:Reference Name=ColVeiw}, Path=SelectedItem}" FontSize="14" WidthRequest="1"  />
+                        
                     </Grid>
 
-                </CollectionView.Header>
+                </CollectionView.Header >
                 <CollectionView.ItemTemplate VerticalOptions="Start" HorizontalOptions="Fill" >
                       <DataTemplate  >
                         <Grid   VerticalOptions="Start" HorizontalOptions="Center"   >
                         <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="140"/>
+                                
+                                <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding Id}" Grid.Column="0"/>
-                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding HowManyEggs}" Grid.Column="1"/>
-                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding DataAdd}" Grid.Column="2"/>
+                            
+                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding HowManyEggs}" Grid.Column="0"/>
+                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding DataAdd}" Grid.Column="1"/>
+                           
+                           
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -76,6 +88,3 @@
         
     </VerticalStackLayout>
 </ContentPage>
-<!--
-    
-    -->
