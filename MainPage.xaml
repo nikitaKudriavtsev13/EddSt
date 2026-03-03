@@ -17,5 +17,5 @@
 
     <local:EggPage Shell.NavBarIsVisible="False" />
     <local:StatEgg Shell.NavBarIsVisible="False" />
-    <local:ChikenPage Shell.NavBarIsVisible="False"/>
+    
 </TabbedPage>

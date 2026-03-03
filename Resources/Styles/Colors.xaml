@@ -29,7 +29,7 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
     <Color x:Key="yellow">#FFE646</Color>
-    <Color x:Key="yellowBlack">#cc9900</Color>
+    <Color x:Key="yellowBlack">#DAA520</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

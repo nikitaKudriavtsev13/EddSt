@@ -41,14 +41,14 @@
                 <CollectionView.ItemTemplate >
                     <DataTemplate>
 
-                        <Grid  VerticalOptions="End" HorizontalOptions="Fill"   >
+                        <Grid  VerticalOptions="Fill" HorizontalOptions="Fill"   >
                             <Grid.RowDefinitions>
-                                <RowDefinition  Height="130"/>
+                                <RowDefinition  Height="150"/>
                                 <RowDefinition Height="5"/>
                                 <RowDefinition Height="30"/>
   
                             </Grid.RowDefinitions>
-                            <BoxView Margin="1" Grid.Row="0" VerticalOptions="End"
+                            <BoxView Margin="1" Grid.Row="0" VerticalOptions="End" Background="{StaticResource Gray600}"
                                WidthRequest="{Binding Heght } " HeightRequest="{Binding Weght } "/>
                             <Label HorizontalOptions="Center" Margin="1"
                                     FontSize="{Binding Heght }"
@@ -59,7 +59,10 @@
                 </CollectionView>
             
         </Border>
-
+        <HorizontalStackLayout  HorizontalOptions="Center">
+            <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}"/>
+            <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" />
+        </HorizontalStackLayout>
        
         <Border>
          
@@ -89,10 +92,7 @@
 
                
         </Border>
-        <HorizontalStackLayout  HorizontalOptions="Center">
-            <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}"/>
-            <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" />
-        </HorizontalStackLayout>
+
 
     </StackLayout>
     

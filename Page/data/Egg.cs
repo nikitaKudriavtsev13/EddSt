@@ -67,7 +67,7 @@ namespace EddSt.Page.data
         public string? DataAdd { get => dataAdd; set => dataAdd = value; }
         
 
-        public HeghtLine() { }
+        public HeghtLine() {  }
 
         public HeghtLine(int heght,int weght, string dataAdd,DateOnly Date)
         {
@@ -122,7 +122,11 @@ namespace EddSt.Page.data
             db.Database.EnsureCreated();// гарантируем, что бд будет создана
             db.EggsAnd.Load();
             Eggs = db.EggsAnd.Local.ToObservableCollection();
-            
+
+            (AllEgg, SredEgg) = Line(DateTime.DaysInMonth(DateOnly.FromDateTime(DateTime.Now).Year,
+                             DateOnly.FromDateTime(DateTime.Now).Month),
+                            new DateOnly(DateOnly.FromDateTime(DateTime.Now).Year, DateOnly.FromDateTime(DateTime.Now).Month, 1),
+                            "dd", 7,  Eggs, HeghtLines);
 
 
             AddCommand = new Command(() =>// команда добовления
@@ -158,8 +162,9 @@ namespace EddSt.Page.data
             {
                 OnPropertyChanged();
                 DateOnly dNow = DateOnly.FromDateTime(DateTime.Now);
-                
 
+                (AllEgg, SredEgg) = Line(7, new DateOnly(dNow.Year, dNow.Month, dNow.Day - (int)dNow.DayOfWeek),
+                    "ddd", 18,Eggs, HeghtLines);
 
                 switch (key)
                     {
@@ -219,7 +224,7 @@ namespace EddSt.Page.data
          static public (int,int) Line(int repitPointCount, DateOnly dateStart,string tipWeek,int HeghtL,
             ObservableCollection<Egg> Eggs,ObservableCollection<HeghtLine> HeghtLines)
         {
-            int i = 1;
+            int i = 0;
             int itemAll = 0;
             int AllEgg = 0;
             int SredEgg = 0;
@@ -236,11 +241,11 @@ namespace EddSt.Page.data
 
             foreach (var item in Eggs)
             {
-                i++;
+                
                 if (dateStart <= item.DataAdd)
                 {
 
-
+                    
                     
                     for (int j = 0; j < repitPointCount; j++)
                     {
@@ -253,7 +258,7 @@ namespace EddSt.Page.data
                             itemLin[j].Date = item.DataAdd;
                              itemLin[j].Weght += item.HowManyEggs;
                             itemAll += item.HowManyEggs;
-
+                            
 
                         }
                         else
@@ -270,22 +275,24 @@ namespace EddSt.Page.data
 
                     }
                 }
-                else// ЕСЛИ НЕТ ДАЕЕЫХ
-                {
+             else// ЕСЛИ НЕТ ДАЕЕЫХ
+               {
                     itemLin[0].Heght = HeghtL;
                     itemLin[0].DataAdd = "НЕТ ДАННЫХ";
                     itemLin[0].Date =  dateStart;
                     itemLin[0].Weght = 0;
                     i = 1;
-                }
+                    
+               }
             }
             //itemLin.Reverse();
             foreach (var item in itemLin)
             {
                 HeghtLines.Add(new(item.Heght, item.Weght, item.DataAdd, item.Date));
+                if (item.Weght != 0) i++;
             }
             AllEgg = itemAll;
-            SredEgg = itemAll / i;
+            SredEgg = itemAll / i==0?1:i;
             
             return (AllEgg, SredEgg);
 

@@ -5,11 +5,13 @@
 
              xmlns:local="clr-namespace:EddSt.Page"
              Shell.NavBarIsVisible="False"
-             Title="EggPage">
+             Title="EggPage"
+             >
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:ConvertHeght x:Key="ConvertHeght1" />
         </ResourceDictionary>
+        
     </ContentPage.Resources>
     
     <!--<ContentPage.BindingContext>
@@ -22,8 +24,8 @@
                 <FlexLayout  Wrap="Wrap"   HorizontalOptions="Center" VerticalOptions="Center">
                     <VerticalStackLayout>
                         <Entry   x:Name="EntryEgg" Placeholder="Enter howManyEggs" Text="{Binding HowManyEggs}" 
-                                 Keyboard="Numeric"  WidthRequest="150"  />
-                    <Stepper  Minimum="1" Maximum="110" Increment="1" 
+                                 Keyboard="Numeric"  WidthRequest="165"  />
+                        <Stepper  Minimum="1" Maximum="110" Increment="1" 
                              Value="{Binding HowManyEggs}" AutomationProperties.IsInAccessibleTree="False"/>
                     </VerticalStackLayout>
 
@@ -67,7 +69,7 @@
                 </CollectionView.Header >
                 <CollectionView.ItemTemplate VerticalOptions="Start" HorizontalOptions="Fill" >
                       <DataTemplate  >
-                        <Grid   VerticalOptions="Start" HorizontalOptions="Center"   >
+                        <Grid   VerticalOptions="Start" HorizontalOptions="Fill"   >
                         <Grid.ColumnDefinitions>
                                 
                                 <ColumnDefinition Width="120"/>
