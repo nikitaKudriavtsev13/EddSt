@@ -224,7 +224,7 @@ namespace EddSt.Page.data
          static public (int,int) Line(int repitPointCount, DateOnly dateStart,string tipWeek,int HeghtL,
             ObservableCollection<Egg> Eggs,ObservableCollection<HeghtLine> HeghtLines)
         {
-            int i = 0;
+            int i = 1;
             int itemAll = 0;
             int AllEgg = 0;
             int SredEgg = 0;
@@ -292,7 +292,7 @@ namespace EddSt.Page.data
                 if (item.Weght != 0) i++;
             }
             AllEgg = itemAll;
-            SredEgg = itemAll / i==0?1:i;
+            SredEgg = itemAll / i-1==0?1:i-1;
             
             return (AllEgg, SredEgg);
 
