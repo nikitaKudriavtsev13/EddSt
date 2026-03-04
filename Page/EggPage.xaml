@@ -29,9 +29,9 @@
                              Value="{Binding HowManyEggs}" AutomationProperties.IsInAccessibleTree="False"/>
                     </VerticalStackLayout>
 
-                    <Button Text="OK" Command="{Binding AddCommand}" WidthRequest="100" Margin="0"  
-                            />
-
+                    <Button Text="OK" Command="{Binding AddCommand}" WidthRequest="100" Margin="0"   />
+                    <Button Text="X"  Command="{Binding RemoveCommand}" WidthRequest="60"  Margin="5,0,0,0" 
+                    CommandParameter="{Binding Source={x:Reference Name=ColVeiw}, Path=SelectedItem}"   />
                 </FlexLayout>
              </VerticalStackLayout>
         </Border>
@@ -61,8 +61,7 @@
                         
                         <Label  HorizontalOptions="Center"  Margin="10" Text="СКОЛЬКО СНЕСЛОСЬ" Grid.Column="1"/>
                         <Label HorizontalOptions="Center"  Margin="10" Text=" КОГДА СНЕСЛИСЬ" Grid.Column="2"/>
-                         <Button Grid.Column="3" Text="X"  Command="{Binding RemoveCommand}"
-   CommandParameter="{Binding Source={x:Reference Name=ColVeiw}, Path=SelectedItem}" FontSize="14" WidthRequest="1"  />
+                         
                         
                     </Grid>
 
@@ -71,14 +70,14 @@
                       <DataTemplate  >
                         <Grid   VerticalOptions="Start" HorizontalOptions="Fill"   >
                         <Grid.ColumnDefinitions>
-                                
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="120"/>
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             
-                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding HowManyEggs}" Grid.Column="0"/>
-                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding DataAdd}" Grid.Column="1"/>
+                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding HowManyEggs}" Grid.Column="1"/>
+                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding DataAdd}" Grid.Column="2"/>
                            
                            
                         </Grid>

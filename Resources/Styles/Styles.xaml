@@ -21,7 +21,7 @@
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor"
-                                        Value="#FDDB6D" />
+                                        Value="{AppThemeBinding Light={StaticResource White}, Dark=#CCFFB500}"/>
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

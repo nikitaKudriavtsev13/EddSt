@@ -88,6 +88,7 @@ namespace EddSt.Page.data
         DateOnly? dataAdd;
         int howManyEggs = 1;
         int sredEgg;
+        string eggsForAllTime;
         int allEgg;
         int heghtL;
         int weghtL;
@@ -122,12 +123,12 @@ namespace EddSt.Page.data
             db.Database.EnsureCreated();// гарантируем, что бд будет создана
             db.EggsAnd.Load();
             Eggs = db.EggsAnd.Local.ToObservableCollection();
-
+            EggsForAllTime = EggsAllTime(Eggs);
             (AllEgg, SredEgg) = Line(DateTime.DaysInMonth(DateOnly.FromDateTime(DateTime.Now).Year,
                              DateOnly.FromDateTime(DateTime.Now).Month),
                             new DateOnly(DateOnly.FromDateTime(DateTime.Now).Year, DateOnly.FromDateTime(DateTime.Now).Month, 1),
                             "dd", 7,  Eggs, HeghtLines);
-
+            
 
             AddCommand = new Command(() =>// команда добовления
                 {
@@ -135,7 +136,7 @@ namespace EddSt.Page.data
                     db.EggsAnd.Add(new Egg(HowManyEggs));
                     db.SaveChanges();
                     Eggs = db.EggsAnd.Local.ToObservableCollection();
-                    
+                    EggsForAllTime = EggsAllTime(Eggs);
                     HowManyEggs = 1;
                 });
 
@@ -145,7 +146,7 @@ namespace EddSt.Page.data
                 {
                     db.EggsAnd.Remove(egg);
                     db.SaveChanges();
-
+                    EggsForAllTime = EggsAllTime(Eggs);
                 }
             });
             
@@ -221,6 +222,17 @@ namespace EddSt.Page.data
             
 
         }
+        static public string EggsAllTime(ObservableCollection<Egg> Eggs)
+        {
+            int allEggsTime = 0;
+            foreach (var item in Eggs)
+            {
+                allEggsTime += item.HowManyEggs;
+            }
+
+            return $"за все время снесено : {allEggsTime} яиц" ;
+        }
+
          static public (int,int) Line(int repitPointCount, DateOnly dateStart,string tipWeek,int HeghtL,
             ObservableCollection<Egg> Eggs,ObservableCollection<HeghtLine> HeghtLines)
         {
@@ -368,6 +380,12 @@ namespace EddSt.Page.data
                 if (selectedHeghtLines != value) selectedHeghtLines = value;
                 OnPropertyChanged();
             }
+        }
+
+        public string EggsForAllTime
+        {
+            get => eggsForAllTime;
+            set { eggsForAllTime = value; OnPropertyChanged(); }
         }
     }
     public class ApplicationContext : DbContext

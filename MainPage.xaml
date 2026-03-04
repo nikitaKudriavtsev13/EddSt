@@ -7,7 +7,7 @@
              Shell.NavBarIsVisible="False"
              xmlns:viewModels="clr-namespace:EddSt.Page.data"
              
-             
+             Title="{Binding EggsForAllTime}"
              x:Class="EddSt.MainPage" >
    
     <TabbedPage.BindingContext>
