@@ -75,7 +75,7 @@
                                 <ColumnDefinition Width="180"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            
+                            <Label HorizontalOptions="Center" Margin="10"  Text="{Binding Id}" Grid.Column="0"/>
                             <Label HorizontalOptions="Center" Margin="10"  Text="{Binding HowManyEggs}" Grid.Column="1"/>
                             <Label HorizontalOptions="Center" Margin="10"  Text="{Binding DataAdd}" Grid.Column="2"/>
                            

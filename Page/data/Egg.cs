@@ -4,6 +4,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;// INotifyPropertyChanged
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Runtime.CompilerServices; 
 using System.Windows.Input;
@@ -16,7 +17,7 @@ namespace EddSt.Page.data
 
     public class Egg
     {
-        
+        [Key]
         private int id;
         private int howManyEggs;
         private DateOnly dataAdd;
@@ -304,7 +305,7 @@ namespace EddSt.Page.data
                 if (item.Weght != 0) i++;
             }
             AllEgg = itemAll;
-            SredEgg = itemAll / i-1==0?1:i-1;
+            SredEgg = itemAll / (i-1==0?1:i-1);
             
             return (AllEgg, SredEgg);
 
