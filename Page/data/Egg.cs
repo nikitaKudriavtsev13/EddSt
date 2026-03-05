@@ -123,7 +123,14 @@ namespace EddSt.Page.data
           
             db.Database.EnsureCreated();// гарантируем, что бд будет создана
             db.EggsAnd.Load();
-            Eggs = db.EggsAnd.Local.ToObservableCollection();
+
+            //Eggs = db.EggsAnd.Local.ToObservableCollection();
+            var iG = db.EggsAnd.Local.ToObservableCollection();
+            
+            foreach (var item in iG.Reverse())
+            {
+                Eggs.Add( item);
+            }
             EggsForAllTime = EggsAllTime(Eggs);
             (AllEgg, SredEgg) = Line(DateTime.DaysInMonth(DateOnly.FromDateTime(DateTime.Now).Year,
                              DateOnly.FromDateTime(DateTime.Now).Month),
@@ -133,10 +140,14 @@ namespace EddSt.Page.data
 
             AddCommand = new Command(() =>// команда добовления
                 {
+                    var itemE = (new Egg(HowManyEggs));
+                    Eggs.Insert(0, itemE);
 
-                    db.EggsAnd.Add(new Egg(HowManyEggs));
+                    db.EggsAnd.Add(itemE);
                     db.SaveChanges();
-                    Eggs = db.EggsAnd.Local.ToObservableCollection();
+                   // Eggs = db.EggsAnd.Local.ToObservableCollection();
+                    
+
                     EggsForAllTime = EggsAllTime(Eggs);
                     HowManyEggs = 1;
                 });
@@ -147,6 +158,7 @@ namespace EddSt.Page.data
                 {
                     db.EggsAnd.Remove(egg);
                     db.SaveChanges();
+                    Eggs.Remove(egg);
                     EggsForAllTime = EggsAllTime(Eggs);
                 }
             });
@@ -231,7 +243,7 @@ namespace EddSt.Page.data
                 allEggsTime += item.HowManyEggs;
             }
 
-            return $"за все время снесено : {allEggsTime} яиц" ;
+            return $"за все время  : {allEggsTime} яиц" ;
         }
 
          static public (int,int) Line(int repitPointCount, DateOnly dateStart,string tipWeek,int HeghtL,
