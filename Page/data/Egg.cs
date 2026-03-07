@@ -1,11 +1,11 @@
 ﻿
 
-using Microsoft.Data.Sqlite;
+
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;// INotifyPropertyChanged
 using System.ComponentModel.DataAnnotations;
-using System.IO;
+
 using System.Runtime.CompilerServices; 
 using System.Windows.Input;
 
@@ -177,8 +177,7 @@ namespace EddSt.Page.data
                 OnPropertyChanged();
                 DateOnly dNow = DateOnly.FromDateTime(DateTime.Now);
 
-                (AllEgg, SredEgg) = Line(7, new DateOnly(dNow.Year, dNow.Month, dNow.Day - (int)dNow.DayOfWeek),
-                    "ddd", 18,Eggs, HeghtLines);
+       
 
                 switch (key)
                     {
@@ -227,7 +226,7 @@ namespace EddSt.Page.data
                         if (HeghtLines.Count > 12) goto case "2";
                         
                         break;
-                    default:goto case "1";
+                    default: break;
                      }
                 
             });

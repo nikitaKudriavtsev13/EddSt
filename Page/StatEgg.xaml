@@ -59,10 +59,7 @@
                 </CollectionView>
             
         </Border>
-        <HorizontalStackLayout  HorizontalOptions="Center">
-            <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}"/>
-            <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" />
-        </HorizontalStackLayout>
+
        
         <Border>
          
@@ -73,19 +70,29 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions >
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label  Text="в среденм" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" />
+                    
+                    <HorizontalStackLayout  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" >
+                    <Label  Text="среднем"  HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}" VerticalOptions="Center"/>
+                    <Label Text="{Binding DataAddN }" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" VerticalOptions="Center"/>
+                    <Label  Text="всего" HorizontalOptions="Center" VerticalOptions="Center" /> 
+                </HorizontalStackLayout> 
+                    
+                
                 <Label x:Name="sArefm" Text="{Binding  SredEgg}"  FontSize="50"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" />
                 <Label  Text="яиц" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" />
 
-                <Label Text="{Binding DataAddN }" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" />
+               
+                
                 <Label x:Name="now"  Text="{Binding WeghtLN }"  FontSize="50"  Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" />
                 <Label  Text="яиц"  Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
 
-                <Label  Text="всего" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center"  />
+               
                 <Label x:Name="all"  Text="{Binding AllEgg }"  FontSize="50"  Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" />
                 <Label  Text="яиц"  Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
                 </Grid><!--данные в срелнем-->

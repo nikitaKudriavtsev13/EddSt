@@ -17,22 +17,29 @@
     <!--<ContentPage.BindingContext>
         <viewModels:EggViewModel/>
     </ContentPage.BindingContext>-->
-    <VerticalStackLayout  VerticalOptions="Fill" x:Name="ContentEggPageStackLayout" >
+    <VerticalStackLayout  x:Name="ContentEggPageStackLayout" >
         <Border   x:Name="borderAnother" Padding="0,0,0,5">
-            <VerticalStackLayout  >
+            <VerticalStackLayout HorizontalOptions="Fill" >
+                
                <Label HorizontalOptions="Center"  Text="Введите количество снесенных яиц"/>
-                <FlexLayout  Wrap="Wrap"   HorizontalOptions="Center" VerticalOptions="Center">
-                    <VerticalStackLayout>
+                
+                <Grid    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout HorizontalOptions="Center" WidthRequest="160"  Grid.Column="0">
                         <Entry   x:Name="EntryEgg" Placeholder="Enter howManyEggs" Text="{Binding HowManyEggs}" 
-                                 Keyboard="Numeric"  WidthRequest="165"  />
+                                 Keyboard="Numeric"   />
                         <Stepper  Minimum="1" Maximum="110" Increment="1" 
                              Value="{Binding HowManyEggs}" AutomationProperties.IsInAccessibleTree="False"/>
                     </VerticalStackLayout>
 
-                    <Button Text="OK" Command="{Binding AddCommand}" WidthRequest="100" Margin="0"   />
-                    <Button Text="X"  Command="{Binding RemoveCommand}" WidthRequest="60"  Margin="5,0,0,0" 
+                    <Button Text="OK" Command="{Binding AddCommand}"  Margin="5,0,0,0" Grid.Column="1"/>
+                    <Button Text=" X "  Command="{Binding RemoveCommand}"   Margin="5,0,5,0" Grid.Column="2"
                     CommandParameter="{Binding Source={x:Reference Name=ColVeiw}, Path=SelectedItem}"   />
-                </FlexLayout>
+                    </Grid>
              </VerticalStackLayout>
         </Border>
 
@@ -54,13 +61,13 @@
                     <Grid  VerticalOptions="Start" HorizontalOptions="Center"   >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="128"/>
-                            <ColumnDefinition Width="128"/>
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="130"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         
-                        <Label  HorizontalOptions="Center"  Margin="10" Text="СКОЛЬКО СНЕСЛОСЬ" Grid.Column="1"/>
-                        <Label HorizontalOptions="Center"  Margin="10" Text=" КОГДА СНЕСЛИСЬ" Grid.Column="2"/>
+                        <Label  HorizontalOptions="Center"  Margin="5" Text=" СКОЛЬКО СНЕСЛОСЬ" Grid.Column="1"/>
+                        <Label HorizontalOptions="Center"  Margin="5" Text="   КОГДА СНЕСЛИСЬ" Grid.Column="2"/>
                          
                         
                     </Grid>
@@ -71,8 +78,8 @@
                         <Grid   VerticalOptions="Start" HorizontalOptions="Fill"   >
                         <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="120"/>
-                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="130"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                           
