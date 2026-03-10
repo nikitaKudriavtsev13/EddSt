@@ -4,7 +4,7 @@
              x:Class="EddSt.Page.StatEgg"
               
              xmlns:local="clr-namespace:EddSt.Page"
-             Title="StatEgg">
+             Title="СТАТИСТИКА">
     <!--xmlns:viewModels="clr-namespace:EddSt.Page.data"-->
     <!--<ContentPage.BindingContext>
         <viewModels:EggViewModel/>
@@ -65,7 +65,8 @@
          
                 <Grid Margin="10" HorizontalOptions="Fill">
                     <Grid.RowDefinitions >
-                       <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -74,27 +75,27 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                    
-                    <HorizontalStackLayout  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" >
-                    <Label  Text="среднем"  HorizontalOptions="Center" VerticalOptions="Center" />
-                    <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}" VerticalOptions="Center"/>
-                    <Label Text="{Binding DataAddN }" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" VerticalOptions="Center"/>
-                    <Label  Text="всего" HorizontalOptions="Center" VerticalOptions="Center" /> 
-                </HorizontalStackLayout> 
-                    
-                
-                <Label x:Name="sArefm" Text="{Binding  SredEgg}"  FontSize="50"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" />
-                <Label  Text="яиц" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" />
 
-               
-                
-                <Label x:Name="now"  Text="{Binding WeghtLN }"  FontSize="50"  Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" />
-                <Label  Text="яиц"  Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
 
-               
-                <Label x:Name="all"  Text="{Binding AllEgg }"  FontSize="50"  Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" />
-                <Label  Text="яиц"  Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
+                
+                    <Button  Text="-" CommandParameter="5" Command="{Binding AllSredEgg}" VerticalOptions="Center"
+                              Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding DataAddN }" HorizontalOptions="Center" VerticalOptions="Center"
+                            Grid.Row="0" Grid.Column="1"/>
+                <Button   Text="+"  CommandParameter="4" Command="{Binding AllSredEgg}" VerticalOptions="Center"
+                            Grid.Row="0" Grid.Column="2"/>
+
+                <Label  Text="среднем"  HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row="1" Grid.Column="0"/>   
+                <Label  Text="всего" HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row="1" Grid.Column="2"/> 
+                 
+                <Label x:Name="sArefm" Text="{Binding  SredEgg}"  FontSize="50"  Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" />
+                <Label  Text="яиц" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" />
+
+                <Label x:Name="now"  Text="{Binding WeghtLN }"  FontSize="50"  Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" />
+                <Label  Text="яиц"  Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" />
+
+                <Label x:Name="all"  Text="{Binding AllEgg }"  FontSize="50"  Grid.Row="2" Grid.Column="2" HorizontalOptions="Center" />
+                <Label  Text="яиц"  Grid.Row="3" Grid.Column="2" HorizontalOptions="Center" />
                 </Grid><!--данные в срелнем-->
 
                

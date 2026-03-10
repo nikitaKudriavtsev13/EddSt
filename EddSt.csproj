@@ -76,6 +76,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Page\Abaut.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Page\ChikenPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

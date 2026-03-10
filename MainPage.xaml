@@ -17,5 +17,6 @@
 
     <local:EggPage Shell.NavBarIsVisible="False" />
     <local:StatEgg Shell.NavBarIsVisible="False" />
+    <local:Abaut Shell.NavBarIsVisible="False" />
     
 </TabbedPage>
