@@ -163,7 +163,7 @@ namespace EddSt.Page.data
 
 
         }
-        static public string EggsAllTime(ObservableCollection<Egg> Eggs)
+        static public string EggsAllTime(ObservableCollection<Egg> Eggs)// зАГОЛОВК
         {
             int allEggsTime = 0;
             foreach (var item in Eggs)
@@ -171,7 +171,8 @@ namespace EddSt.Page.data
                 allEggsTime += item.HowManyEggs;
             }
 
-            return $"за все время  : {allEggsTime} яиц";
+            
+            return $"ВСЕГО : {allEggsTime} яиц";
         }
 
         static public (int, int) Line(int repitPointCount, DateOnly dateStart, string tipWeek, int HeghtL,

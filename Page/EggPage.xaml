@@ -68,8 +68,10 @@
                         
                         <Label  HorizontalOptions="Center"  Margin="5" Text=" СКОЛЬКО СНЕСЛОСЬ" Grid.Column="1"/>
                         <Label HorizontalOptions="Center"  Margin="5" Text="   КОГДА СНЕСЛИСЬ" Grid.Column="2"/>
-                         
+
                         
+
+
                     </Grid>
 
                 </CollectionView.Header >

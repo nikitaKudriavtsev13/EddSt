@@ -18,6 +18,7 @@ public partial class EggPage : ContentPage
 
     }
 
+
 }
 
 

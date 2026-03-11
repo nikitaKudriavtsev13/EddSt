@@ -3,10 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EddSt.Page.Abaut"
              Title="КОНТАКТЫ">
-    <VerticalStackLayout>
-        <Label 
+    <Border>
+        <VerticalStackLayout>
+            <Picker x:Name="languagePicker" Title = "цветовая ралитра" HorizontalOptions="Center"
+        SelectedIndexChanged="languagePicker_SelectedIndexChanged" FontSize="Default" TextColor="#FFFFFF">
+                <Picker.Items >
+                    <x:String >СВЕТЛАЯ</x:String>
+                    <x:String>ТЕМНАЯ</x:String>
+                    <x:String>АВТО</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
+    </Border>
 </ContentPage>

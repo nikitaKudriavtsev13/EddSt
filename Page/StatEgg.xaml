@@ -48,7 +48,7 @@
                                 <RowDefinition Height="30"/>
   
                             </Grid.RowDefinitions>
-                            <BoxView Margin="1" Grid.Row="0" VerticalOptions="End" Background="{StaticResource Gray600}"
+                            <BoxView Margin="1" Grid.Row="0" VerticalOptions="End" 
                                WidthRequest="{Binding Heght } " HeightRequest="{Binding Weght } "/>
                             <Label HorizontalOptions="Center" Margin="1"
                                     FontSize="{Binding Heght }"
