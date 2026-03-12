@@ -28,7 +28,7 @@ internal class ConvertHeght : IMultiValueConverter
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
 		
-        return (double)values[0]- (double)values[1]-30;
+        return (double)values[0]- (double)values[1]-220;
     }
 
     public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

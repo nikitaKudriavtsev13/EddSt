@@ -44,7 +44,7 @@
         </Border>
 
 
-        <Border  Margin="5"  >
+        <Border  Margin="5"   >
             <Border.HeightRequest>
                 <MultiBinding Converter="{StaticResource ConvertHeght1}">
                     <Binding Source="{x:Reference ContentEggPageStackLayout}" Path="Height"/>

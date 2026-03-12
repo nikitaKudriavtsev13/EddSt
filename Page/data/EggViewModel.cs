@@ -44,7 +44,7 @@ namespace EddSt.Page.data
         public ICommand? nowLineCommand { get; private set; }
         public ICommand? AllSredEgg { get; private set; }
 
-
+        public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         public EggViewModel()
         {
