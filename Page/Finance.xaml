@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EddSt.Page.Finance"
+             Title="Finance">
+    <VerticalStackLayout>
+        <Border HeightRequest="200">
+            <Grid  HeightRequest="70" VerticalOptions="Start"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Label Text="проданные яйца" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="0" Grid.Row="1"/>
+
+                <Label Text="доход" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
+                <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="1" Grid.Row="1"/>
+
+                <Label Text="дата продажи" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center"/>
+                <Label x:Name="LableDNow" Grid.Column="2" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Button Text="ОК" Grid.Column="3" Grid.Row="1" />
+             </Grid>
+            
+    </Border>
+        <Border HeightRequest="200">
+            
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
