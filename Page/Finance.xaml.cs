@@ -4,9 +4,9 @@ public partial class Finance : ContentPage
 {
 	public Finance()
 	{
-		LableDNow.Text = DateOnly.FromDateTime(DateTime.Now).ToString();
+        
 		InitializeComponent();
-
+LableDNow.Text = DateOnly.FromDateTime(DateTime.Now).ToString();
 
 		
     }

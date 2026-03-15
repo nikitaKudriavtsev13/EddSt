@@ -4,33 +4,54 @@
              x:Class="EddSt.Page.Finance"
              Title="Finance">
     <VerticalStackLayout>
-        <Border HeightRequest="200">
-            <Grid  HeightRequest="70" VerticalOptions="Start"  >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130" />
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <Label Text="проданные яйца" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
-                <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="0" Grid.Row="1"/>
+        <Border HeightRequest="400">
+            <VerticalStackLayout>
+                <Grid  HeightRequest="70" VerticalOptions="Start"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                <Label Text="доход" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
-                <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="1" Grid.Row="1"/>
+                    <Label Text="коментари" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                    <Entry  MinimumWidthRequest="100" Grid.Column="0" Grid.Row="1"/>
 
-                <Label Text="дата продажи" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center"/>
-                <Label x:Name="LableDNow" Grid.Column="2" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"/>
-                <Button Text="ОК" Grid.Column="3" Grid.Row="1" />
-             </Grid>
-            
+                    <Label Text="доход" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
+                    <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="1" Grid.Row="1"/>
+
+                    <Label Text="дата " Grid.Column="2" Grid.Row="0" HorizontalOptions="Center"/>
+                    <Label x:Name="LableDNow" Grid.Column="2" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Button Text="ОК" Grid.Column="3" Grid.Row="1" />
+                </Grid>
+
+                <Grid  HeightRequest="70" VerticalOptions="Start"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="коментари" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                    <Entry  MinimumWidthRequest="100" Grid.Column="0" Grid.Row="1"/>
+
+                    <Label Text="расход" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center"/>
+                    <Entry Keyboard="Numeric" MinimumWidthRequest="100" Grid.Column="1" Grid.Row="1"/>
+
+                    <Label Text="{Binding Source={Reference LableDNow},Path=Text}"   Grid.Column="2" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Button Text="ОК" Grid.Column="3" Grid.Row="1" />
+                </Grid>
+            </VerticalStackLayout>
     </Border>
-        <Border HeightRequest="200">
-            
-        </Border>
+      
     </VerticalStackLayout>
 </ContentPage>
